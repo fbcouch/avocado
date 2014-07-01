@@ -48,6 +48,20 @@ describe TestsController do
       end
     end
 
+    context 'with params that have a file' do
+      let(:file) do
+        Rack::Test::UploadedFile.new(File.join('spec', 'support', 'test_image.png'))
+      end
+
+      let(:assertion) do
+        -> { Avocado.payload.first[:request][:params].should == { 'file' => 'test_image.png' } }
+      end
+
+      it 'should have sent the params' do
+        get :json, file: file
+      end
+    end
+
     context 'with headers' do
       let(:assertion) do
         -> { Avocado.payload.first[:request][:headers].should == { 'X-Example-Header' => 123 } }
