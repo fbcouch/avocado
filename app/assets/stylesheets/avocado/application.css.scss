@@ -75,8 +75,6 @@ html, body, #avocado {
       }
 
       li a {
-        height: 40px;
-        line-height: 40px;
         border-bottom: 1px solid #dedede;
         display: block;
         overflow: hidden;
@@ -95,6 +93,11 @@ html, body, #avocado {
         .description {
           color: #333;
           font-size: 12px;
+          display: block;
+          overflow: hidden;
+          margin-left: 32px;
+          height: 22px;
+          line-height: 22px;
         }
 
         &:hover {
